@@ -89,12 +89,13 @@ class Adapter {
               }
 
               // If item is part of a PR, jump to that file's diff
-              if (item.patch && typeof item.patch.diffId === 'number') {
+              if (item.patch && item.patch.diffId != null) { //typeof item.patch.diffId === 'number') {
                 const url = this._getPatchHref(repo, item.patch);
                 item.a_attr = {
                   href: url,
                   'data-download-url': item.url,
-                  'data-download-filename': name
+                  'data-download-filename': name,
+                  'data-filename': item.patch.filename
                 };
               } else {
                 // Encodes but retains the slashes, see #274
@@ -264,6 +265,13 @@ class Adapter {
   }
 
   /**
+   * Return the href of file of the tree item
+   */
+  getFileHref(target) {
+    return target.attr('href');
+  }
+
+  /**
    * Selects the file at a specific path.
    * @api public
    */
@@ -369,7 +377,7 @@ class Adapter {
    * @api protected
    */
   _getPatchHref(repo, patch) {
-    return `/${repo.username}/${repo.reponame}/pull/${repo.pullNumber}/files#diff-${patch.diffId}`;
+    return `/${repo.username}/${repo.reponame}/pull/${repo.pullNumber}/files#${patch.diffId}`;
   }
 
   _sort(folder) {

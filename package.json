@@ -1,7 +1,7 @@
 {
-  "name": "octotree",
+  "name": "octopanel",
   "version": "3.0.10",
-  "description": "GitHub on steroids",
+  "description": "AGPL licensed",
   "scripts": {
     "start": "gulp",
     "watch": "gulp",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ovity/octotree"
+    "url": "https://github.com/trieutritam/octopanel"
   },
-  "author": "Buu Nguyen <buunguyen@gmail.com> (https://github.com/buunguyen)",
+  "author": "Community",
   "license": "AGPL",
   "bugs": {
-    "url": "https://github.com/ovity/octotree/issues"
+    "url": "https://github.com/trieutritam/octopanel/issues"
   },
-  "homepage": "https://github.com/ovity/octotree",
+  "homepage": "https://github.com/trieutritam/octopanel",
   "devDependencies": {
     "async": "~0.9.0",
     "chromedriver": "^2.21.2",
@@ -52,6 +52,11 @@
     "starx": "~0.1.7",
     "stream-series": "*",
     "underscore": "~1.7.0",
-    "underscore.string": "~2.4.0"
+    "underscore.string": "~2.4.0",
+    "graceful-fs": "^4.2.4",
+    "natives": "^1.1.6"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }

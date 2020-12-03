@@ -1,9 +1,9 @@
 {
-  "name": "Octotree",
+  "name": "Octopanel",
   "version": "$VERSION",
-  "description": "GitHub on steroids",
-  "homepage_url": "https://www.octotree.io",
-  "author": "Buu Nguyen",
+  "description": "AGPL licensed",
+  "homepage_url": "https://github.com/trieutritam/octopanel",
+  "author": "Community",
   "manifest_version": 2,
   "minimum_chrome_version": "60",
   "icons": {
@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "run_at": "document_start",
-      "matches": ["https://github.com/*"],
+      "matches": ["https://github.com/*", "https://ghe.coxautoinc.com/*"],
       "js": ["content.js"],
       "css": ["content.css"]
     }

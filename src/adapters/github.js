@@ -182,6 +182,21 @@ class GitHub extends PjaxAdapter {
     }
   }
 
+  // GHE using hash anchor so we check if we can find the anchor in current page or not? 
+  // and replace the index anchor with Hash Anchor
+  getFileHref(target) {
+    let href = super.getFileHref(target);
+    const filename = target.data('filename');
+    const anchorElem = $('div[data-path="' + filename + '"]');
+    if (anchorElem.length > 0) {
+
+      const anchorHref =  $(anchorElem).attr('data-anchor');
+      return String(href).replace(/#([0-9]+)$/, '#' + anchorHref);
+    }
+
+    return href;
+  }
+
   // @override
   loadCodeTree(opts, cb) {
     opts.encodedBranch = encodeURIComponent(decodeURIComponent(opts.repo.branch));

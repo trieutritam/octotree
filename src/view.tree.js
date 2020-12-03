@@ -46,7 +46,6 @@ class TreeView {
             }
             return;
           }
-
           cb(treeData);
           $(document).trigger(EVENT.REPO_LOADED, {repo, loadAll, duration: Date.now() - startTime});
         });
@@ -130,7 +129,8 @@ class TreeView {
 
     const adapter = this.adapter;
     const newTab = event.shiftKey || event.ctrlKey || event.metaKey;
-    const href = $target.attr('href');
+    const href = adapter.getFileHref($target);//$target.attr('href');
+
     // The 2nd path is for submodule child links
     const $icon = $target.children().length ? $target.children(':first') : $target.siblings(':first');
 
