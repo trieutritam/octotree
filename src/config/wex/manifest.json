@@ -10,7 +10,7 @@
     "128": "icons/icon128.png"
   },
   "permissions": ["https://api.github.com/*", "storage"],
-  "optional_permissions": ["<all_urls>"],
+  "optional_permissions": [ "tabs", "http://*/" ],
   "web_accessible_resources": ["*.woff2", "*.png", "*.gif"],
   "background": {
     "scripts": ["background.js"],
@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "run_at": "document_start",
-      "matches": ["https://github.com/*", "https://ghe.coxautoinc.com/*"],
+      "matches": ["https://github.com/*","http://*/*", "https://*/*"],
       "js": ["content.js"],
       "css": ["content.css"]
     }
